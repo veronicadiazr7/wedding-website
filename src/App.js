@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar';
+import HeroImage from './components/HeroImage';
+import { Footer } from './components/Footer';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { PageNotFound } from './pages/PageNotFound';
+import { GiftRegistry } from './pages/GiftRegistry';
+import { Itinerary } from './pages/Itinerary';
+import { Contact } from './pages/Contact';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <div className="linear-gradient(rgb(243, 244, 246), rgb(209, 213, 219))">
+     <Navbar/> 
+ 
+  
+    
+    <Routes>
+      <Route path='/inicio' element={<Home />}/>
+      <Route path='*' element={<PageNotFound />}/>
+      <Route path='/registro' element={<GiftRegistry/>}/>
+      <Route path='/itinerario' element={<Itinerary/>}/>
+      <Route path='/contacto' element={<Contact/>}/>
+    </Routes>
+    <footer>
+      <Footer/>
+     </footer>
+     </div>
+</BrowserRouter>
   );
 }
 
